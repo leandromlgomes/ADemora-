@@ -162,7 +162,36 @@ export default function Home() {
           Sessão {session?.game_date}
         </p>
 
+        <div className="mt-10 bg-slate-800 rounded-xl p-6">
 
+          <h2 className="text-2xl font-bold mb-4">
+            ➕ Cadastrar Jogador
+          </h2>
+
+          <div className="flex gap-3">
+
+            <input
+              value={newPlayer}
+              onChange={(e) => setNewPlayer(e.target.value)}
+              placeholder="Nome do jogador"
+              className="flex-1 rounded-lg p-3 text-black"
+              onKeyDown={(e) => {
+                if (e.key === "Enter")
+                  registerPlayer();
+              }}
+            />
+
+            <button
+              onClick={registerPlayer}
+              disabled={savingPlayer}
+              className="bg-green-600 hover:bg-green-700 px-6 rounded-lg font-bold"
+            >
+              Cadastrar
+            </button>
+
+          </div>
+
+        </div>
 
         <div className="mt-12">
 
